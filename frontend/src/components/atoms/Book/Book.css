@@ -1,0 +1,28 @@
+body{
+    background-color: #F0DFBC;
+    display: block;
+    text-align: center;
+  }
+
+#book {
+    width: 15rem;
+    margin: 1rem;
+    box-shadow: 5px 5px 5px #9c7557;
+}
+
+.card-img {
+    margin: 0.5rem;
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    background-color: #C89D7C !important;
+    border: none;
+}
+
+.more-info p {
+    margin: 0
+}
