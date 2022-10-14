@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+#welcome {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    right: 20%;
+    display: block;
+    z-index: 1000;
+    font-family: "Dancing Script", cursive;
+    font-size: 60px;
+    font-weight: 500;
+    background-color: #F0DFBC;
+    opacity: 0.8;
+}
+
+#text {
+    display: block;
+}

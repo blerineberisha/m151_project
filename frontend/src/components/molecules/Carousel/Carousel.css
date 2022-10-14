@@ -1,0 +1,9 @@
+#img{
+    width:  stretch;
+    height: stretch;
+    object-fit: cover;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    color: white !important;
+}

@@ -2,4 +2,5 @@ body{
   background-color: #F0DFBC;
   display: block;
   text-align: center;
+  justify-content: center;
 }
