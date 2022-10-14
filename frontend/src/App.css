@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
 body{
+  font-family: 'Didact Gothic', sans-serif;
   background-color: #F0DFBC;
   display: block;
   text-align: center;
