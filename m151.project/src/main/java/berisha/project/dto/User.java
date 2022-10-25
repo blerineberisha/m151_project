@@ -1,4 +1,4 @@
-package berisha.project.DTOs;
+package berisha.project.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +15,7 @@ import java.util.Set;
 @Getter
 @Table(name="users")
 @Entity
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -23,6 +24,8 @@ public class Users {
     private String username;
     @Column(name = "email")
     private String email;
+    @Column(name="password")
+    private String password;
     @Column(name = "firstname")
     private String firstname;
     @Column(name = "lastname")
@@ -32,14 +35,11 @@ public class Users {
     @Column(name = "housenr")
     private String housenr;
     @ManyToOne
-    @JoinColumn(name = "zip")
+    @JoinColumn(name = "town_zip")
     private Town zip;
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country_id;
-    @ManyToMany
-    @JoinTable(name="users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> userRoles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Role> roles = new ArrayList<>();
 }

@@ -1,4 +1,4 @@
-package berisha.project.DTOs;
+package berisha.project.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,7 +20,6 @@ public class Favourites {
     private int list_id;
     @Column(name="list_name")
     private String list_name;
-
     @ManyToMany(mappedBy = "favouriteLists")
     private Set<Book> books;
 }

@@ -1,0 +1,38 @@
+.error {
+    margin-top: 10px;
+    color: red;
+    border-radius: 15px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5%;
+  }
+  
+  #reg_form {
+    background-color: #f9eacd;
+    margin: 2rem;
+    padding: 2rem;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px #9c7557;
+    border: solid #9c7557;
+  }
+  
+  #reg_input {
+    color: #654934;
+  }
+  
+  #reg_input-helper-text {
+    display: none;
+  }
+  
+  #submit {
+    background-color: #654934;
+  }
+  
+  #regicon{
+    height: 50px;
+    width: 50px;
+  }

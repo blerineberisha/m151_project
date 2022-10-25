@@ -3,3 +3,19 @@
     padding: 1rem;
     box-shadow: 2px 2px 5px #9c7557;
 }
+
+#icon{
+    color: #654934 !important;
+    align-items: center;
+    justify-items: center;
+}
+
+#home{
+    color: #654934 !important;
+    align-items: center;
+    justify-items: center;
+}
+
+.icons{
+    margin: 0.5rem;
+}

@@ -1,4 +1,4 @@
-package berisha.project.DTOs;
+package berisha.project.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

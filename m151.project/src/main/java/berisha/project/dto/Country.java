@@ -1,4 +1,4 @@
-package berisha.project.DTOs;
+package berisha.project.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Set;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -20,8 +18,4 @@ public class Country {
     private int country_id;
     @Column(name="name")
     private String name;
-
-    @OneToMany
-    @JoinColumn(name="zip")
-    private Set<Town> towns;
 }
