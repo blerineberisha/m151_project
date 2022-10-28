@@ -1,17 +1,8 @@
 import React from 'react'
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './Book.css'
-
-export type BookType = {
-    id: number;
-    image: string;
-    book_title: string;
-    author: string;
-    book_description: string;
-    price: string;
-    publisher: string;
-};
+import { BookType } from '../../../type/BookType';
 
 export const Book = ({
     id,
@@ -34,9 +25,9 @@ export const Book = ({
                     <p>Price: {price}</p>
                 </Card.Text>
             </Card.Body>
-            <Button href={'/book' + id} className='button'>
-                View
-            </Button>
+            <Card.Body>
+                {book_description}
+            </Card.Body>
         </Card>
     )
 }

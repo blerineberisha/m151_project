@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import React from 'react'
 //import { AxiosService } from '../../../services/AxiosService'
-import { User } from '../../../Types/User';
+import { User } from '../../../type/User';
 import * as Yup from 'yup';
 import './Registration.css';
 import { TextField } from "formik-mui";

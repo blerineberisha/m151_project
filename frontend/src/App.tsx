@@ -6,11 +6,13 @@ import Navigation from './Navigation'
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <Navigation />
+      <div id="app">
+        <Navigation />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-package berisha.project.security;
+package berisha.project.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
