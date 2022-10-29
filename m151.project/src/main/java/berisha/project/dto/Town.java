@@ -19,8 +19,7 @@ public class Town {
     private String zip;
     @Column(name="name")
     private String name;
-
     @ManyToOne
-    @JoinColumn(name = "country_id")
-    private Country country_id;
+    @JoinColumn(name = "id_country")
+    private Country id_country;
 }

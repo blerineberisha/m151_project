@@ -18,28 +18,25 @@ import java.util.Collection;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     private int user_id;
-    @Column(name = "username")
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
-    @Column(name="password")
+    @Column(name="password", nullable = false)
     private String password;
-    @Column(name = "firstname")
+    @Column(name = "firstname", nullable = false)
     private String firstname;
-    @Column(name = "lastname")
+    @Column(name = "lastname", nullable = false)
     private String lastname;
-    @Column(name = "streetname")
+    @Column(name = "streetname", nullable = false)
     private String streetname;
-    @Column(name = "housenr")
+    @Column(name = "housenr", nullable = false)
     private String housenr;
     @ManyToOne
-    @JoinColumn(name = "town_zip")
+    @JoinColumn(name = "town_zip", nullable = false)
     private Town zip;
-    @ManyToOne
-    @JoinColumn(name = "country_id")
-    private Country country_id;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
 }

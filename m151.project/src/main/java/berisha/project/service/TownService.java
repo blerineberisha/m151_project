@@ -1,6 +1,20 @@
 package berisha.project.service;
 
+import berisha.project.dto.Town;
 import berisha.project.repo.TownRepo;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-public abstract class TownService implements TownRepo {
+import javax.transaction.Transactional;
+import java.util.List;
+
+@Service
+@Transactional
+@RequiredArgsConstructor
+public class TownService {
+    private final TownRepo tRepo;
+
+    public List<Town> getAllTowns(){
+        return tRepo.findAll();
+    }
 }
