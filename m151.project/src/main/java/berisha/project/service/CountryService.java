@@ -17,4 +17,10 @@ public class CountryService {
     public List<Country> getCountries(){
         return cRepo.findAll();
     }
+
+    public Country saveCountry(Country country){
+        return cRepo.save(country);
+    }
+
+    public void deleteCountry(int countryId){cRepo.deleteById(countryId);}
 }

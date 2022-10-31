@@ -17,4 +17,6 @@ public class TownService {
     public List<Town> getAllTowns(){
         return tRepo.findAll();
     }
+
+    public Town addTown(Town town){return tRepo.save(town);}
 }

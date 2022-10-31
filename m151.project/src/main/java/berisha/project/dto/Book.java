@@ -26,19 +26,4 @@ public class Book {
     private String description;
     @Column(name = "price")
     private Float price;
-
-    @ManyToMany
-    @JoinTable(
-            name = "favourites_books",
-            joinColumns = @JoinColumn(name = "isbn"),
-            inverseJoinColumns = @JoinColumn(name = "favourites_id"))
-    private Set<Favourites> favouriteLists;
-
-    @ManyToMany
-    @JoinTable(
-            name = "authors_books",
-            joinColumns = @JoinColumn(name = "isbn"),
-            inverseJoinColumns = @JoinColumn(name = "author_id")
-    )
-    private Set<Author> authors;
 }

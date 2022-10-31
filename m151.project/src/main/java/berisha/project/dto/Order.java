@@ -18,6 +18,7 @@ import javax.persistence.*;
 @Entity
 public class Order {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "order_id")
     private int order_id;
     @Column(name = "title")

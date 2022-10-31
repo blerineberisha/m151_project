@@ -4,21 +4,19 @@ import berisha.project.dto.User;
 import berisha.project.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/users")
 public class UserWeb {
 
     @Autowired
     private final UserServiceImpl uService;
 
-    @GetMapping
-    @CrossOrigin(origins="localhost:3000")
+    @GetMapping("/users")
+    @CrossOrigin(origins="http://localhost:3000")
     public List<User> getAll() {
         return uService.getUsers();
     }
@@ -29,9 +27,15 @@ public class UserWeb {
         return uService.getUser(username);
     }
 
-    @PostMapping
-    @CrossOrigin(origins = "localhost:3000")
+    @PostMapping("users")
+    @CrossOrigin(origins = "http://localhost:3000")
     public User save(@RequestBody User user) {
         return uService.saveUser(user);
+    }
+
+    @DeleteMapping("/{username}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public void deleteUser(@PathVariable("username") String username){
+        uService.deleteUser(username);
     }
 }

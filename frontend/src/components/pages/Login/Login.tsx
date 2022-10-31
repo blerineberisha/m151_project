@@ -5,11 +5,11 @@ import * as Yup from 'yup';
 import { Field, Form, Formik } from 'formik';
 import { TextField } from "formik-mui";
 import LoginIcon from '@mui/icons-material/Login';
-//import { AxiosService } from '../../../services/AxiosService';
+import { services } from '../../../service/services';
 
 
 export default function Login() {
-    //const aService = new AxiosService();
+    const aService = new services();
     const validationSchema = Yup.object().shape({
         username: Yup.string()
             .min(2, "Username has to be at least 2 characters")
@@ -21,8 +21,7 @@ export default function Login() {
             .required("Please enter a password")
     })
     const handleSubmit = (username: string, password: string) => {
-        //aService.login(username, password);
-        alert([username, password]);
+        aService.login(username, password);
     }
 
     return (

@@ -1,9 +1,9 @@
 export type BookType = {
-    id: number;
-    image: string;
-    book_title: string;
+    isbn: number;
+    image?: string;
+    title: string;
     author: string;
-    book_description: string;
+    description: string;
     price: string;
     publisher: string;
 };

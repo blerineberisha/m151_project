@@ -16,6 +16,7 @@ import java.util.Set;
 @Entity
 public class Author {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="author_id")
     private int author_id;
     @Column(name="firstname")
@@ -23,6 +24,11 @@ public class Author {
     @Column(name="lastname")
     private String lastname;
 
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany
+    @JoinTable(
+            name = "authors_books",
+            joinColumns = @JoinColumn(name = "author_id"),
+            inverseJoinColumns = @JoinColumn(name = "isbn", referencedColumnName = "isbn")
+    )
     private Set<Book> booksAuthors;
 }

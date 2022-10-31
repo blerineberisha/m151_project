@@ -1,6 +1,6 @@
 import { Formik, Form, Field } from "formik";
 import React from 'react'
-//import { AxiosService } from '../../../services/AxiosService'
+import { services } from '../../../service/services'
 import { User } from '../../../type/User';
 import * as Yup from 'yup';
 import './Registration.css';
@@ -9,11 +9,10 @@ import { Button } from "@mui/material";
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 export default function Registration() {
-    //const aService = new AxiosService();
+    const aService = new services();
     
     const handleSubmit = (values: User) => {
-        //aService.postNewUser(values)
-        alert([values.username, values.email, values.password]);
+        aService.postNewUser(values)
     }
 
     const SignupSchema = Yup.object().shape({

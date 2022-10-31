@@ -4,30 +4,33 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './Book.css'
 import { BookType } from '../../../type/BookType';
 
+
 export const Book = ({
-    id,
+    isbn,
     image,
-    book_title,
+    title,
     author,
-    book_description,
+    description,
     price,
     publisher
 }: BookType) => {
-    if (!id) return <div />;
+    if (!isbn) return <div />;
     return (
-        <Card id="book">
-            <Card.Img src={image} className="card-img" />
-            <Card.Body className="card-body">
-                <Card.Title>
-                    {book_title} by {author}
-                </Card.Title>
-                <Card.Text className='more-info'>
-                    <p>Price: {price}</p>
-                </Card.Text>
-            </Card.Body>
-            <Card.Body>
-                {book_description}
-            </Card.Body>
-        </Card>
+        <>
+            <Card id="book">
+                <Card.Img src={image} className="card-img" />
+                <Card.Body className="card-body">
+                    <Card.Title>
+                        {title} by {author}
+                    </Card.Title>
+                    <Card.Text className='more-info'>
+                        <p>Price: {price}</p>
+                    </Card.Text>
+                </Card.Body>
+                <Card.Body>
+                    {description}
+                </Card.Body>
+            </Card>
+        </>
     )
 }

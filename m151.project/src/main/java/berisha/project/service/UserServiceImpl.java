@@ -14,9 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.security.Principal;
+import java.util.*;
 
 @RequiredArgsConstructor
 @Transactional
@@ -43,12 +42,16 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
 
+    public void deleteUser(String username){
+        uRepo.delete(getUser(username));
+    }
+
     @Override
     public User saveUser(User user) {
         System.out.println("Saving new user to the database");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        Role roleUser = rRepo.findByName("ROLE_USER");
-        Collection<Role> defaultRoles = new ArrayList<>();
+        Role roleUser = rRepo.findByName("USER");
+        List<Role> defaultRoles = new ArrayList<>();
         defaultRoles.add(roleUser);
         user.setRoles(defaultRoles);
         uRepo.save(user);
@@ -75,6 +78,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     @Override
     public List<User> getUsers() {
+        for(User u: uRepo.findAll()){
+            for(Role r: u.getRoles()){
+                System.out.println("User: " + u.getUsername() + " " + "Roles: " + r.getName());
+            }
+        }
         return uRepo.findAll();
     }
 

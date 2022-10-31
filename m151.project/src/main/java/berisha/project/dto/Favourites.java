@@ -16,10 +16,17 @@ import java.util.Set;
 @Entity
 public class Favourites {
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="list_id")
     private int list_id;
+
     @Column(name="list_name")
     private String list_name;
-    @ManyToMany(mappedBy = "favouriteLists")
+
+    @ManyToMany@JoinTable(
+            name = "favourites_books",
+            joinColumns = @JoinColumn(name = "list_id"),
+            inverseJoinColumns = @JoinColumn(name = "isbn", referencedColumnName = "isbn")
+    )
     private Set<Book> books;
 }
