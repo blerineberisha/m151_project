@@ -18,7 +18,7 @@ public class CountryWeb {
     private final CountryService cService;
     private final TownService tService;
 
-    @GetMapping("")
+    @GetMapping
     @CrossOrigin(origins = "http://localhost:3000")
     public List<Country> getAll() {
         return cService.getCountries();
@@ -32,19 +32,25 @@ public class CountryWeb {
 
     @PostMapping("/towns")
     @CrossOrigin(origins = "http://localhost:3000")
-    public Town addTown(@RequestBody Town town){
+    public Town addTown(@RequestBody Town town) {
         return tService.addTown(town);
     }
 
     @PostMapping
     @CrossOrigin(origins = "http://localhost:3000")
-    public Country addCountry(@RequestBody Country country){
+    public Country addCountry(@RequestBody Country country) {
         return cService.saveCountry(country);
     }
 
     @DeleteMapping("/{id}")
     @CrossOrigin(origins = "http://localhost:3000")
-    public void deleteCountry(@PathVariable("id") int id){
+    public void deleteCountry(@PathVariable("id") int id) {
         cService.deleteCountry(id);
+    }
+
+    @GetMapping("/towns/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
+    public Town findById(@PathVariable("id") String id) {
+        return tService.findById(id);
     }
 }

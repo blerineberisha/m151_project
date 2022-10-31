@@ -15,7 +15,11 @@ public class BookService {
 
     private final BookRepo bRepo;
 
-    public List<Book> getAll(){
+    public Book getBook(String id) {
+        return bRepo.getReferenceById(id);
+    }
+
+    public List<Book> getAll() {
         return bRepo.findAll();
     }
 }

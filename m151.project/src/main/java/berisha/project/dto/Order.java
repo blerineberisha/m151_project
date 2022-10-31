@@ -14,7 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name="order")
+@Table(name="book_order")
 @Entity
 public class Order {
     @Id
@@ -27,6 +27,10 @@ public class Order {
     private Date date;
     @Column(name = "total")
     private Float total;
+
+    @ManyToOne
+    @JoinColumn(name = "id_user", referencedColumnName = "user_id")
+    private User user;
 
     @ManyToMany
     @JoinTable(

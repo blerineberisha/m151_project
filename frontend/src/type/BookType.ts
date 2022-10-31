@@ -1,9 +1,11 @@
+import { Author } from "./Author";
+
 export type BookType = {
-    isbn: number;
-    image?: string;
+    isbn: string;
     title: string;
-    author: string;
+    author: Author;
     description: string;
     price: string;
     publisher: string;
+    genre: string;
 };

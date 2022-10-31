@@ -23,12 +23,4 @@ public class Author {
     private String firstname;
     @Column(name="lastname")
     private String lastname;
-
-    @ManyToMany
-    @JoinTable(
-            name = "authors_books",
-            joinColumns = @JoinColumn(name = "author_id"),
-            inverseJoinColumns = @JoinColumn(name = "isbn", referencedColumnName = "isbn")
-    )
-    private Set<Book> booksAuthors;
 }

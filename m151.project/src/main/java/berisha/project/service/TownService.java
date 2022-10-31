@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -19,4 +20,8 @@ public class TownService {
     }
 
     public Town addTown(Town town){return tRepo.save(town);}
+
+    public Town findById(String id){
+        return tRepo.getReferenceById(id);
+    }
 }

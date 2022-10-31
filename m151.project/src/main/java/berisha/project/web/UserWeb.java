@@ -27,7 +27,7 @@ public class UserWeb {
         return uService.getUser(username);
     }
 
-    @PostMapping("users")
+    @PostMapping("register")
     @CrossOrigin(origins = "http://localhost:3000")
     public User save(@RequestBody User user) {
         return uService.saveUser(user);

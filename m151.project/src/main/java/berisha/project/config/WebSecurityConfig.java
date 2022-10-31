@@ -11,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @RequiredArgsConstructor
@@ -32,9 +30,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         authFilter.setFilterProcessesUrl("/login");
         http.cors().and().csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeRequests().antMatchers("/login", "/signUp").permitAll();
-        http.authorizeRequests().antMatchers("/countries/**").hasAnyRole();
-        http.authorizeRequests().antMatchers("/books/**").permitAll();
+        http.authorizeRequests().antMatchers("/login", "/register").permitAll();
+        //http.authorizeRequests().antMatchers(HttpMethod.GET, "/books/**","/countries/**","countries/towns/**").permitAll();
+        http.authorizeRequests().antMatchers("/books").permitAll();
+        http.authorizeRequests().anyRequest().authenticated();
         http.addFilter(authFilter);
         http.addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }

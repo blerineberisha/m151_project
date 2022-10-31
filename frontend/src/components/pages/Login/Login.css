@@ -44,3 +44,7 @@
 #login{
     height: 784px;
 }
+
+::-webkit-scrollbar {
+    display: none;
+  }

@@ -31,7 +31,7 @@ export class services {
 
     config = {
         headers: {
-            Authorization: "Bearer " + localStorage.getItem('user'),
+            AUTHORIZATION: "Bearer " + localStorage.getItem('user'),
             withCredentials: true
         }
     };
@@ -42,5 +42,13 @@ export class services {
 
     getBooks() {
         return this.client.get("/books");
+    }
+
+    getCountries() {
+        return this.client.get("/countries", this.config);
+    }
+
+    getUsers() {
+        return this.client.get("/users", this.config);
     }
 }

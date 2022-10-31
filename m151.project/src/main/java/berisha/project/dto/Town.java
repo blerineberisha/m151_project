@@ -20,6 +20,6 @@ public class Town {
     @Column(name="name")
     private String name;
     @ManyToOne
-    @JoinColumn(name = "id_country")
+    @JoinColumn(name = "id_country", referencedColumnName = "country_id")
     private Country id_country;
 }

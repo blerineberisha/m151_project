@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -26,4 +27,7 @@ public class Book {
     private String description;
     @Column(name = "price")
     private Float price;
+    @ManyToOne
+    @JoinColumn(name = "id_author")
+    private Author author;
 }

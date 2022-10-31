@@ -1,4 +1,3 @@
-import { Grid3x3 } from '@mui/icons-material';
 import { Box, Button, Grid, Modal, Typography } from '@mui/material';
 import React from 'react'
 import { services } from '../../../service/services';
@@ -17,14 +16,14 @@ const AllBooks = () => {
         aserv.getBooks().then((res) => {
             setBooks(res.data);
         })
-    }, [])
+    })
 
     return (
         <Grid id="grid" container item xs={8} md={8} spacing={3} alignContent={"center"} justifyContent={"center"}>
             {books.map((b: BookType) => {
                 return (
                     <div>
-                        <div id="box">
+                        <div id="box" key={b.isbn}>
                             <Book
                                 key={b.isbn}
                                 isbn={b.isbn}
@@ -34,6 +33,7 @@ const AllBooks = () => {
                                 author={b.author}
                                 price={b.price}
                                 publisher={b.publisher}
+                                genre={b.genre}
                             />
                             <Button onClick={() => handleOpen}>Details</Button>
                         </div>

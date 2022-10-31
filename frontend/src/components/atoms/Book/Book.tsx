@@ -7,7 +7,6 @@ import { BookType } from '../../../type/BookType';
 
 export const Book = ({
     isbn,
-    image,
     title,
     author,
     description,
@@ -18,10 +17,10 @@ export const Book = ({
     return (
         <>
             <Card id="book">
-                <Card.Img src={image} className="card-img" />
+                <Card.Img className="card-img" />
                 <Card.Body className="card-body">
                     <Card.Title>
-                        {title} by {author}
+                        {title} by {author.firstname + " " + author.lastname}
                     </Card.Title>
                     <Card.Text className='more-info'>
                         <p>Price: {price}</p>

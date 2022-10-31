@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public abstract class FavouritesService implements FavouritesRepo {
+public class FavouritesService {
 
     private final FavouritesRepo favRepo;
 
@@ -19,7 +19,6 @@ public abstract class FavouritesService implements FavouritesRepo {
         return favRepo.save(entity);
     }
 
-    @Override
     public List<Favourites> findAll() {
         return favRepo.findAll();
     }

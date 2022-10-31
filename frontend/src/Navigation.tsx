@@ -4,6 +4,8 @@ import AllBooks from "./components/pages/AllBooks/AllBooks";
 import Login from "./components/pages/Login/Login";
 import RegistrationPage from "./components/pages/Registration/Registration";
 import Towns from "./components/pages/Towns/Towns";
+import Countries from "./components/pages/Countries/Countries";
+import Users from "./components/pages/Users/Users";
 
 function Navigation() {
     return (
@@ -14,6 +16,8 @@ function Navigation() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/registration" element={<RegistrationPage />} />
                 <Route path="/towns" element={<Towns />} />
+                <Route path="/countries" element={<Countries />} />
+                <Route path="/users" element={<Users />} />
             </Routes>
         </BrowserRouter>
     )
