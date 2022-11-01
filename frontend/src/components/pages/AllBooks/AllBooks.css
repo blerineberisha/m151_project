@@ -5,10 +5,21 @@
     margin-right: auto;
     border-radius: 10px;
     width: 50%;
-    top: 50%;
+    top: 25%;
     background-color: antiquewhite;
+    padding: 2rem;
+    height: 400px;
 }
 
 #grid{
     padding: 1rem;
+}
+
+#box{
+    padding: 1rem;
+}
+
+#close, #close:hover{
+    bottom: 0;
+    background-color: transparent;
 }

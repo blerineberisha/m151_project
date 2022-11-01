@@ -1,0 +1,45 @@
+div.success {
+    background-color: #2d8732; /*mui palette main success*/
+    border-radius: 0px;
+    z-index: 10000;
+  }
+  div.error {
+    background-color: #932119; /*mui palette main error*/
+    border-radius: 0px;
+    z-index: 10000;
+  }
+  div.info {
+    background-color: #4991b3; /*mui palette main info*/
+    border-radius: 0px;
+    z-index: 10000;
+  }
+  div.warning {
+    background-color: #cb800f; /*mui palette main warning*/
+    border-radius: 0px;
+    z-index: 10000;
+  }
+  svg.icon {
+    font-size: 20px;
+    z-index: 10000;
+  }
+  .iconVariant {
+    opacity: 0.9;
+    margin-right: 8px;
+  
+    z-index: 10000;}
+  .message {
+    align-items: center;
+    z-index: 10000;
+  }
+  .closeButton {
+    top: 3px;
+    z-index: 10000;
+  }
+  .iconError {
+    transform: translateY(21%);
+    z-index: 10000;
+  }
+  div.snackbar-container {
+    padding-bottom: 10px;
+    z-index: 10000;
+  }

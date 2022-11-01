@@ -11,7 +11,7 @@ const Towns = () => {
         }).catch((e) => {
             console.log(e)
         })
-    })
+    },[])
 
     return (
         <div>

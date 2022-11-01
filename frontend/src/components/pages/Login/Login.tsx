@@ -6,9 +6,11 @@ import { Field, Form, Formik } from 'formik';
 import { TextField } from "formik-mui";
 import LoginIcon from '@mui/icons-material/Login';
 import { services } from '../../../service/services';
+import SnackbarContext from '../../../contexts/MuiSnackbarContext';
 
 
 export default function Login() {
+    const { displaySnackbarMessage } = useContext(SnackbarContext);
     const aService = new services();
     const validationSchema = Yup.object().shape({
         username: Yup.string()
@@ -22,12 +24,19 @@ export default function Login() {
     })
     const handleSubmit = (username: string, password: string) => {
         aService.login(username, password);
+        window.setTimeout(function () {
+            window.location.href = '/'
+        }, 1500)
     }
 
     return (
         <div id="login">
             <Formik
-                onSubmit={(values) => handleSubmit(values.username, values.password)}
+                onSubmit={(values) => {
+                    handleSubmit(values.username, values.password);
+                    displaySnackbarMessage('Successfully logged in', 'success');
+                }
+            }
                 initialValues={{
                     username: "",
                     password: ""
@@ -50,7 +59,6 @@ export default function Login() {
                 )}
             </Formik>
             <p>Don't have an account?</p><p>What are you waiting for? <a href="/registration">Register now</a></p>
-
         </div>
 
     )

@@ -1,0 +1,33 @@
+#container {
+    display: block;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 3rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    box-shadow: 3px 3px 3px #C89D7C;
+    margin-bottom: 5rem;
+}
+
+#tablehead,
+#pag {
+    background-color: #9c7557;
+    color: white;
+    border: none;
+}
+
+#colored:nth-child(2n) {
+    background-color: #C89D7C;
+}
+
+#colored:nth-child(2n+1) {
+    background-color: #F0DFBC;
+}
+
+#selected, #selected:hover{
+    background-color: white;
+}

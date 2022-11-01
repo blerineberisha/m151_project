@@ -7,7 +7,7 @@ export class services {
 
 
     postNewUser(user: User) {
-        return this.client.post("/users/", user);
+        return this.client.post("/register", user);
     }
 
     async login(username: string, password: string) {
@@ -50,5 +50,13 @@ export class services {
 
     getUsers() {
         return this.client.get("/users", this.config);
+    }
+
+    getPrincipal(){
+        return this.client.get("/principal", this.config)
+    }
+
+    deleteUser(username: string){
+        return this.client.delete("/" + username, this.config)
     }
 }

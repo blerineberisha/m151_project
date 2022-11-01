@@ -1,5 +1,5 @@
 import { Formik, Form, Field } from "formik";
-import React from 'react'
+import React, { useContext } from 'react'
 import { services } from '../../../service/services'
 import { User } from '../../../type/User';
 import * as Yup from 'yup';
@@ -7,12 +7,17 @@ import './Registration.css';
 import { TextField } from "formik-mui";
 import { Button } from "@mui/material";
 import HowToRegIcon from '@mui/icons-material/HowToReg';
+import SnackbarContext from "../../../contexts/MuiSnackbarContext";
 
 export default function Registration() {
     const aService = new services();
-    
+    const { displaySnackbarMessage } = useContext(SnackbarContext);
+
     const handleSubmit = (values: User) => {
         aService.postNewUser(values)
+        window.setTimeout(function () {
+            window.location.href = '/login'
+        }, 1500)
     }
 
     const SignupSchema = Yup.object().shape({
@@ -40,7 +45,11 @@ export default function Registration() {
         <div id="registration">
             <Formik
                 initialValues={initialValues}
-                onSubmit={(values: User) => { handleSubmit(values) }}
+                onSubmit={(values: User) => {
+                    handleSubmit(values);
+                    displaySnackbarMessage('Successfully registered!', 'success')
+                }
+                }
                 validationSchema={SignupSchema}
                 validateOnBlur={true}
             >

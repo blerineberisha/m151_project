@@ -1,7 +1,7 @@
 import { Country } from "./Country"
 
 export type Town = {
-    id?: number,
+    zip: string,
     name: string
     id_country: Country
 }
