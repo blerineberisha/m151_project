@@ -5,7 +5,6 @@ export class services {
     private BASE_URL = "http://localhost:8080";
     private client = axios.create({ baseURL: this.BASE_URL });
 
-
     postNewUser(user: User) {
         return this.client.post("/register", user);
     }
@@ -20,13 +19,6 @@ export class services {
 
     logout() {
         localStorage.removeItem("user");
-    };
-
-    getCurrentUser() {
-        const userStr = localStorage.getItem("user");
-        if (userStr) return JSON.parse(userStr);
-
-        return null;
     };
 
     config = {
@@ -52,11 +44,15 @@ export class services {
         return this.client.get("/users", this.config);
     }
 
-    getPrincipal(){
+    getPrincipal() {
         return this.client.get("/principal", this.config)
     }
 
-    deleteUser(username: string){
+    deleteUser(username: string) {
         return this.client.delete("/" + username, this.config)
+    }
+
+    getCart(){
+        return this.client.get("/cart/", this.config)
     }
 }
