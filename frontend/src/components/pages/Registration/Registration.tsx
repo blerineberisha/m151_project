@@ -37,6 +37,7 @@ export default function Registration() {
     });
 
     let initialValues = {
+        user_id: 0,
         username: "",
         email: "",
         password: ""
