@@ -1,9 +1,11 @@
 import { Box, Button, Grid, Modal, Typography } from '@mui/material';
-import React from 'react'
+import React, { useContext } from 'react'
 import { services } from '../../../service/services';
 import { BookType } from '../../../type/BookType';
 import { Book } from '../../atoms/Book/Book';
 import CloseIcon from '@mui/icons-material/Close';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import SnackbarContext from '../../../contexts/MuiSnackbarContext';
 import './AllBooks.css'
 
 const AllBooks = () => {
@@ -11,6 +13,7 @@ const AllBooks = () => {
     const [books, setBooks] = React.useState<BookType[]>([]);
     const [selected, setSelected] = React.useState<BookType>({ isbn: "", title: "", description: "", author: { author_id: 0, firstname: "", lastname: "" }, price: "", publisher: "", genre: "" });
     const aserv = new services();
+    const { displaySnackbarMessage } = useContext(SnackbarContext);
 
     React.useEffect(() => {
         aserv.getBooks().then((res) => {
@@ -75,6 +78,12 @@ const AllBooks = () => {
                     </Grid>
                     <Button onClick={() => setOpen(false)}>
                         <CloseIcon id="close" />
+                    </Button>
+                    <Button onClick={() => {
+                        aserv.addBookToCart(selected);
+                        displaySnackbarMessage('Item added', 'success')
+                    }}>
+                        <AddCircleIcon />
                     </Button>
                 </Box>
             </Modal>

@@ -30,4 +30,16 @@ public class CartWeb {
     public List<Book> getCart(){
         return cServ.getByUser();
     }
+
+    @DeleteMapping("/cart/{id}")
+    @CrossOrigin("http://localhost:3000")
+    public void deleteBook(@PathVariable("id") String id){
+        cServ.deleteItem(id);
+    }
+
+    @PostMapping("/cart/")
+    @CrossOrigin("http://localhost:3000")
+    public void addBook(@RequestBody Book book){
+        cServ.add(book);
+    }
 }

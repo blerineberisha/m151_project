@@ -1,12 +1,10 @@
-import { RollerShades } from '@mui/icons-material';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Paper, Table, TableBody, TableCell, TableHead, TablePagination, TableRow } from '@mui/material';
+import { Dialog, DialogActions, DialogTitle, Paper, Table, TableBody, TableCell, TableHead, TablePagination, TableRow } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react'
 import { services } from '../../../service/services'
 import { Roles } from '../../../type/Roles';
-import { Town } from '../../../type/Town';
 import { User } from '../../../type/User';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Box, Button, Grid, Modal, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import './Users.css'
 import SnackbarContext from '../../../contexts/MuiSnackbarContext';
 
@@ -35,7 +33,6 @@ const Towns = () => {
         })
     }, [users])
 
-    let count = 0;
     return (
         <div id="container">
             <Paper>
@@ -106,7 +103,9 @@ const Towns = () => {
                         aServ.deleteUser(selected.username);
                         setOpen(false);
                         displaySnackbarMessage('User deleted', 'success')
-                    }}>Yes</Button>
+                    }}>
+                        Yes
+                    </Button>
                 </DialogActions>
             </Dialog>
         </div>

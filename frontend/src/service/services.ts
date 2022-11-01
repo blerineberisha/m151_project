@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { BookType } from '../type/BookType';
 import { User } from '../type/User';
 
 export class services {
@@ -52,7 +53,15 @@ export class services {
         return this.client.delete("/" + username, this.config)
     }
 
-    getCart(){
+    getCart() {
         return this.client.get("/cart/", this.config)
+    }
+
+    deleteItem(id: string) {
+        return this.client.delete("/cart/" + id, this.config)
+    }
+
+    addBookToCart(book: BookType) {
+        return this.client.post("/cart/", book, this.config)
     }
 }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import './Header.css'
 import LoginIcon from '@mui/icons-material/Login';
 import HomeIcon from '@mui/icons-material/Home';
@@ -17,17 +17,13 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const Header = () => {
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
   const handleClose = () => {
-    localStorage.removeItem('user');
-    window.location.href="/"
+    setOpen(false);
   };
 
   const handleLogout = () => {
     setOpen(false);
+    window.location.href = "/"
     localStorage.removeItem('user');
   };
   if (localStorage.getItem('user') == null) {

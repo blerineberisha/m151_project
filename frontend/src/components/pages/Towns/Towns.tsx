@@ -7,7 +7,6 @@ import './Towns.css'
 const Towns = () => {
     const aServ = new services();
     const [page, setPage] = React.useState(0);
-    const [searched, setSearched] = useState<string>("");
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [towns, setTowns] = useState<Town[]>([]);
     const [selected, setSelected] = useState<Town[]>([]);
@@ -23,8 +22,6 @@ const Towns = () => {
             console.log(e)
         })
     }, [])
-
-    let count = 0;
     return (
         <div id="container">
             <Paper>
@@ -45,9 +42,8 @@ const Towns = () => {
                     </TableHead>
                     <TableBody>
                         {towns.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((t: Town) => {
-                            count++;
                             return (
-                                <TableRow id="colored" tabIndex={-1} key={count}>
+                                <TableRow id="colored" tabIndex={-1} key={t.zip}>
                                     <TableCell align='center'>
                                         {t.name}
                                     </TableCell>
